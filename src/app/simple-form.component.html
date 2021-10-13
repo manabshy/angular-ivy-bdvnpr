@@ -1,29 +1,73 @@
+<div class="p-3">
 <h1>Aareon Angular Test</h1>
-<form>
-  <div>
-    <div>
-      <label>Title</label>
-      <select>
-        <option value="">-- Select an option --</option>
-        <!-- TODO: add titles to dropdown -->
-      </select>
+<form [formGroup]="form" (ngSubmit)="submit()" class="form-wrapper mt-4">
+  <div class="row p-0 m-0">
+    <div class="col-12 align-items-center">
+      <div class="col-2">
+        <label>Title</label>
+      </div>
+      <div class="col-10">
+        <select formControlName="title" class="title-box">
+          <option value="">-- Select an option --</option>
+          <option [value]="title.name" *ngFor="let title of titles">
+            {{ title.name }}
+          </option>
+        </select>
+      </div>
     </div>
-    <div>
-      <label>First name</label>
-      <input type="text" placeholder="First name"/>
+    <div class="col-12 mt-3 align-items-center">
+      <div class="col-2">
+        <label>First name</label>
+      </div>
+      <div class="col-10">
+        <input
+          formControlName="firstName"
+          class="form-control"
+          type="text"
+          placeholder="First name"
+        />
+      </div>
     </div>
-    <div>
-      <label>Last name</label>
-      <input type="text" placeholder="Last name"/>
+    <div class="col-12 mt-3 align-items-center">
+      <div class="col-2">
+        <label>Last name</label>
+      </div>
+      <div class="col-10">
+        <input
+          formControlName="lastName"
+          class="form-control"
+          [ngClass]="
+            form?.get('lastName')?.touched && form?.get('lastName')?.errors
+              ? 'text-box-error'
+              : ''
+          "
+          type="text"
+          placeholder="Last name"
+        />
+      </div>
+    </div>
+    <div
+      class="has-error col-12"
+      *ngIf="form?.get('lastName')?.touched && form?.get('lastName')?.errors"
+    >
+      * Last Name is mandatory
     </div>
     <!-- TODO: add error message -->
     <span></span>
-    <div>
-      <input type="checkbox"/>
-      <label>I accept the terms & conditions</label>
+    <div class="col-12 d-flex mt-3 align-items-center justify-content-start">
+      <input
+        value="true"
+        formControlName="acceptTerms"
+        type="checkbox"
+        class="mr-2"
+      />
+      <label class="mr-2">I accept the terms & conditions</label>
     </div>
-    <div>
-      <button>Submit</button>
+    <div class="d-flex align-items-center justify-content-end mt-5">
+      <button [disabled]="!form.get('acceptTerms').value" type="submit">
+        Submit
+      </button>
     </div>
   </div>
 </form>
+</div>
