@@ -3,14 +3,12 @@ div > div {
   flex-direction: row;
 }
 
-div > div > 
-input[type='text'] {
+div > div > input[type='text'] {
   margin-bottom: 10px;
   width: 250px;
 }
-div > div > 
-select {
-  margin-right:65px;
+div > div > select {
+  margin-right: 65px;
   margin-bottom: 10px;
 }
 
@@ -21,9 +19,15 @@ div > div {
 }
 
 div > button[type='submit'] {
-  position: relative;
-  left:360px;
+  float: right;
+  margin-right: 90px;
 }
 div > input[type='checkbox'] + label {
-  margin-left:7px;
+  margin-left: 7px;
+}
+.has-error {
+  color: red;
+}
+.text-box-error {
+  border-color: red;
 }
