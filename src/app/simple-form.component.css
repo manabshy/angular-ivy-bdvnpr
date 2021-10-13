@@ -6,16 +6,15 @@ div > div {
 div > div > 
 input[type='text'] {
   margin-bottom: 10px;
-  width: 500px;
+  width: 250px;
 }
 div > div > 
 select {
+  margin-right:60px;
   margin-bottom: 10px;
-  width: 200px;
+  width: 150px;
   text-align: left;
 }
-
-
 
 div > div {
   display: flex;
@@ -23,4 +22,7 @@ div > div {
   flex: 1 1 auto;
 }
 
-
+div > button[type='submit'] {
+  position: relative;
+  left:495px;
+}
