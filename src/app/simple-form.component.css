@@ -19,8 +19,7 @@ div > div {
 }
 
 div > button[type='submit'] {
-  float: right;
-  margin-right: 90px;
+  margin-top: 10px;
 }
 div > input[type='checkbox'] + label {
   margin-left: 7px;

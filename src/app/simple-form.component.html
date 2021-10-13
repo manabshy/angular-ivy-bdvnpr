@@ -53,18 +53,14 @@
         <span> * Last Name is mandatory </span>
       </div>
       <div>
-        <input
-          value="true"
-          formControlName="acceptTerms"
-          type="checkbox"
-        />
+        <input value="true" formControlName="acceptTerms" type="checkbox" />
         <label>I accept the terms & conditions</label>
       </div>
-      <div>
-        <button [disabled]="!form.get('acceptTerms').value" type="submit">
-          Submit
-        </button>
-      </div>
+    </div>
+    <div>
+      <button [disabled]="!form.get('acceptTerms').value" type="submit">
+        Submit
+      </button>
     </div>
   </form>
 </div>
